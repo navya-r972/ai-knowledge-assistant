@@ -28,7 +28,7 @@ An intelligent multi-agent system for processing and querying personal knowledge
 ### Backend
 - Python 3.10+
 - LangChain & LangGraph for agent orchestration
-- Ollama for local LLM inference
+- Groq for local LLM inference
 - ChromaDB for vector storage
 - FastAPI for API endpoints
 - Unstructured for document processing
