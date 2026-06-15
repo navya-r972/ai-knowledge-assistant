@@ -4,7 +4,7 @@ from langgraph.graph import StateGraph, END
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain_ollama import OllamaLLM, OllamaEmbeddings
+from langchain_groq import ChatGroq
 from langchain_chroma import Chroma
 import os
 from dotenv import load_dotenv
@@ -12,20 +12,15 @@ import json
 
 load_dotenv()
 
-# Initialize LLM with Ollama
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://192.168.68.114:11434")
-MODEL_NAME = os.getenv("OLLAMA_MODEL", "llama3")
-
-llm = OllamaLLM(
-    base_url=OLLAMA_BASE_URL,
-    model=MODEL_NAME,
-    temperature=0.75,
+# Initialize LLM with Groq
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile"
 )
 
-# Initialize embeddings with Ollama
-embeddings = OllamaEmbeddings(
-    base_url=OLLAMA_BASE_URL,
-    model=MODEL_NAME,
+# Initialize embeddings with Groq
+embeddings = GroqEmbeddings(
+    api_key=GROQ_API_KEY
 )
 
 # Initialize vector store

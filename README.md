@@ -65,8 +65,8 @@ pip install -r requirements.txt
 3. **Configure Environment**
 Create a `.env` file with:
 ```env
-OLLAMA_BASE_URL="http://host.docker.internal:11434"
-OLLAMA_MODEL="llama3"
+GROQ_API_KEY="gsk........."
+OLLAMA_MODEL="llama-3.3-70b-versatile"
 ```
 
 4. **Start the Assistant**
